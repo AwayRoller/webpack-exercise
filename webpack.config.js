@@ -4,6 +4,12 @@ var path = require('path');
 
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+
+var CleanWebpackPlugin = require('clean-webpack-plugin');
+
+
+
 
 
 module.exports = {
@@ -18,16 +24,11 @@ module.exports = {
 
         ],
 
-        //vendor: ['jquery']
-
-
     },
 
     output: {
 
         path: path.resolve(__dirname, './public')
-
-
 
     },
 
@@ -61,10 +62,21 @@ module.exports = {
 
     plugins: [
 
-        new ExtractTextPlugin('[name].css')
+        new ExtractTextPlugin('assets/style.css'),
+
+        new CleanWebpackPlugin(['public/img/*.*','public/app.js']),
+
+        new CopyWebpackPlugin([
+            {
+                from: './src/assets/img',
+                to: './img'
+            }
+            ])
+
 
     ]
 
 };
+
 
 

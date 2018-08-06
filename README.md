@@ -12,8 +12,12 @@ To run this:
     npm install css-loader --save-dev
     npm install style-loader --save-dev
     npm install sass-loader node-sass --save-dev  
-    
-   
 4. Install extract text plugin for sass=>css
     npm install --save-dev extract-text-webpack-plugin
     npm i -D extract-text-webpack-plugin@next
+5. To clean the destination folder before copy, you will need this:
+    npm i clean-webpack-plugin --save-dev
+6. For the copied img dir install
+    npm i -D copy-webpack-plugin
+7. Run from terminal
+    npm run dev
